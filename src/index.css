@@ -22,4 +22,6 @@ body {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5;
+  color: var(--color-grey-500);
+  background-color: var(--color-grey-50);
 }
