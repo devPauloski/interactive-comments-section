@@ -9,7 +9,7 @@ export default function App() {
 
 function Comment() {
   return (
-    <section className="mx-auto grid max-w-120 grid-cols-[auto_auto] rounded-lg bg-white p-3 md:max-w-182 md:grid-cols-[auto_1fr_auto] md:grid-rows-[auto_auto] md:p-7">
+    <section className="mx-auto grid max-w-120 grid-cols-[auto_auto] rounded-lg bg-white p-3 md:max-w-182 md:grid-cols-[auto_1fr_auto] md:grid-rows-[auto_auto] md:p-6">
       <div className="col-span-2 col-start-1 mb-4 flex flex-wrap items-center gap-3 md:col-start-2 md:col-end-3">
         <img
           className="size-8.5"
