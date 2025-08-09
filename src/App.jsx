@@ -25,7 +25,7 @@ function Comment() {
         responsiveness at various breakpoints works really well.
       </p>
       <div className="md:row-start-1 md:row-end-3 md:h-fit">
-        <div className="flex items-center gap-2 rounded-xl bg-grey-50 md:flex-col">
+        <div className="inline-flex items-center gap-2 rounded-xl bg-grey-50 md:flex-col">
           <button
             className="grid h-10 w-10 cursor-pointer place-items-center"
             aria-label="Upvote"
