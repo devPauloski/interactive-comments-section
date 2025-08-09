@@ -9,25 +9,25 @@ export default function App() {
 
 function Comment() {
   return (
-    <section className="mx-auto grid grid-cols-[auto_auto] rounded-lg bg-white p-3 md:max-w-183 md:grid-cols-[auto_1fr_auto] md:grid-rows-[auto_auto]">
-      <div className="col-span-2 col-start-1 mb-4 flex flex-wrap items-center gap-3 md:col-start-2 md:col-end-3 md:mb-0">
+    <section className="mx-auto grid max-w-120 grid-cols-[auto_auto] rounded-lg bg-white p-3 md:max-w-182 md:grid-cols-[auto_1fr_auto] md:grid-rows-[auto_auto] md:p-7">
+      <div className="col-span-2 col-start-1 mb-4 flex flex-wrap items-center gap-3 md:col-start-2 md:col-end-3">
         <img
-          className="w-8.5"
+          className="size-8.5"
           src="/avatars/image-amyrobson.webp"
           alt="amyrobson"
         />
         <h2 className="font-bold text-grey-800">amyrobson</h2>
         <p>1 month ago</p>
       </div>
-      <p className="col-span-2 col-start-1 mb-4 md:col-start-2 md:mb-0">
+      <p className="col-span-2 col-start-1 mb-4 md:col-start-2 md:mb-0 md:max-w-[60ch]">
         Impressive! Though it seems the drag feature could be improved. But
         overall it looks incredible. You've nailed the design and the
         responsiveness at various breakpoints works really well.
       </p>
-      <div className="md:row-start-1 md:row-end-3 md:h-fit">
+      <div className="md:row-start-1 md:row-end-3 md:mr-5.5 md:h-fit">
         <div className="inline-flex items-center gap-2 rounded-xl bg-grey-50 md:flex-col">
           <button
-            className="grid h-10 w-10 cursor-pointer place-items-center"
+            className="grid size-10 md:size-8 cursor-pointer place-items-center"
             aria-label="Upvote"
           >
             <img src="/src/assets/icons/icon-plus.svg" alt="" />
@@ -36,7 +36,7 @@ function Comment() {
             <span className="sr-only">Comment votes:</span> 12
           </p>
           <button
-            className="grid h-10 w-10 cursor-pointer place-items-center"
+            className="grid size-10 md:size-8 cursor-pointer place-items-center"
             aria-label="Downvote"
           >
             <img src="/src/assets/icons/icon-minus.svg" alt="" />
