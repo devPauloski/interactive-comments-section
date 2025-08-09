@@ -27,7 +27,7 @@ function Comment() {
       <div className="md:row-start-1 md:row-end-3 md:mr-5.5 md:h-fit">
         <div className="inline-flex items-center gap-2 rounded-xl bg-grey-50 md:flex-col">
           <button
-            className="grid size-10 md:size-8 cursor-pointer place-items-center"
+            className="grid size-10 cursor-pointer place-items-center md:size-8"
             aria-label="Upvote"
           >
             <img src="/src/assets/icons/icon-plus.svg" alt="" />
@@ -36,7 +36,7 @@ function Comment() {
             <span className="sr-only">Comment votes:</span> 12
           </p>
           <button
-            className="grid size-10 md:size-8 cursor-pointer place-items-center"
+            className="grid size-10 cursor-pointer place-items-center md:size-8"
             aria-label="Downvote"
           >
             <img src="/src/assets/icons/icon-minus.svg" alt="" />
