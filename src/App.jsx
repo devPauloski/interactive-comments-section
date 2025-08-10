@@ -5,22 +5,24 @@ import ReplyIcon from "./assets/icons/icon-reply.svg?react";
 
 export default function App() {
   return (
-    <main className="px-4 py-7">
-      <h1 className="sr-only">Comments</h1>
-      <CommentSection />
+    <main className="px-4 py-7 md:px-0 md:py-16">
+      <div className="mx-auto max-w-120 md:max-w-182">
+        <h1 className="sr-only">Comments</h1>
+        <CommentSection />
+      </div>
     </main>
   );
 }
 
 function CommentSection() {
   return (
-    <ul className="mx-auto max-w-120 md:max-w-182">
+    <ul>
       {data.comments.map((comment) => {
         return (
           <li key={comment.id}>
             <section
               aria-labelledby="title"
-              className="grid grid-cols-[auto_auto] rounded-lg bg-white p-3 md:grid-cols-[auto_1fr_auto] md:grid-rows-[auto_auto] md:p-6"
+              className="mb-4.5 grid grid-cols-[auto_auto] rounded-lg bg-white p-3 md:grid-cols-[auto_1fr_auto] md:grid-rows-[auto_auto] md:p-6"
             >
               <div className="col-span-2 col-start-1 mb-4 flex flex-wrap items-center gap-3 md:col-start-2 md:col-end-3">
                 <img
@@ -64,14 +66,14 @@ function CommentSection() {
               </div>
             </section>
             {comment.replies.length > 0 && (
-              <ul className="md:ml-[5%]">
+              <ul className="md:ml-auto md:w-[88%]">
                 {comment.replies.map((reply) => {
                   return (
-                    <li key={reply.id}>
+                    <li key={reply.id} class="my-4">
                       {
                         <section
                           aria-labelledby="title"
-                          className="grid grid-cols-[auto_auto] rounded-lg bg-white p-3 md:grid-cols-[auto_1fr_auto] md:grid-rows-[auto_auto] md:p-6"
+                          className="mb-4.5 grid grid-cols-[auto_auto] rounded-lg bg-white p-3 md:grid-cols-[auto_1fr_auto] md:grid-rows-[auto_auto] md:p-6"
                         >
                           <div className="col-span-2 col-start-1 mb-4 flex flex-wrap items-center gap-3 md:col-start-2 md:col-end-3">
                             <img
