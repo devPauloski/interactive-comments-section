@@ -20,6 +20,7 @@ function CommentSection() {
           <Comment
             key={comment.id}
             imageUrl={comment.user.image.webp}
+            username={comment.user.username}
             time={comment.createdAt}
             content={comment.content}
             score={comment.score}
