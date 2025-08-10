@@ -1,4 +1,7 @@
 import data from "./data.json";
+import PlusIcon from "./assets/icons/icon-plus.svg?react";
+import MinusIcon from "./assets/icons/icon-minus.svg?react";
+import ReplyIcon from "./assets/icons/icon-reply.svg?react";
 
 export default function App() {
   return (
@@ -14,14 +17,19 @@ function CommentSection() {
     <div className="space-y-4">
       {data.comments.map((comment) => {
         return (
-          <section key={comment.id} className="mx-auto grid max-w-120 grid-cols-[auto_auto] rounded-lg bg-white p-3 md:max-w-182 md:grid-cols-[auto_1fr_auto] md:grid-rows-[auto_auto] md:p-6">
+          <section
+            key={comment.id}
+            className="mx-auto grid max-w-120 grid-cols-[auto_auto] rounded-lg bg-white p-3 md:max-w-182 md:grid-cols-[auto_1fr_auto] md:grid-rows-[auto_auto] md:p-6"
+          >
             <div className="col-span-2 col-start-1 mb-4 flex flex-wrap items-center gap-3 md:col-start-2 md:col-end-3">
               <img
                 className="size-8.5"
                 src={comment.user.image.webp}
                 alt={comment.user.username}
               />
-              <h2 className="font-bold text-grey-800">{comment.user.username}</h2>
+              <h2 className="font-bold text-grey-800">
+                {comment.user.username}
+              </h2>
               <p>{comment.createdAt}</p>
             </div>
             <p className="col-span-2 col-start-1 mb-4 md:col-start-2 md:mb-0 md:max-w-[60ch]">
@@ -33,26 +41,23 @@ function CommentSection() {
                   className="grid h-10 w-10 cursor-pointer place-items-center md:h-8"
                   aria-label="Upvote"
                 >
-                  <img src="/src/assets/icons/icon-plus.svg" alt="" />
+                  <PlusIcon />
                 </button>
                 <p className="text-center font-medium text-purple-600">
-                  <span className="sr-only">Comment score:</span>{comment.score}
+                  <span className="sr-only">Comment score:</span>
+                  {comment.score}
                 </p>
                 <button
                   className="grid h-10 w-10 cursor-pointer place-items-center md:h-8"
                   aria-label="Downvote"
                 >
-                  <img src="/src/assets/icons/icon-minus.svg" alt="" />
+                  <MinusIcon />
                 </button>
               </div>
             </div>
             <div className="flex items-center justify-end md:col-start-3 md:row-start-1 md:h-8.5">
-              <button>
-                <img
-                  className="mr-3 inline-block w-4"
-                  src="/src/assets/icons/icon-reply.svg"
-                  alt=""
-                />
+              <button className="flex items-center gap-2.5">
+                <ReplyIcon />
                 <span className="font-medium text-purple-600">Reply</span>
               </button>
             </div>
