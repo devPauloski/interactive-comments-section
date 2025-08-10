@@ -14,10 +14,10 @@ export default function App() {
   );
 }
 
-function CommentSection() {
+function CommentSection({comments}) {
   return (
     <ul>
-      {data.comments.map((comment) => (
+      {comments.map((comment) => (
         <li key={comment.id}>
           <Comment commentData={comment} />
           {comment.replies.length > 0 && (
