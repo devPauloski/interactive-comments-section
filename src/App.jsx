@@ -11,7 +11,7 @@ export default function App() {
 
 function CommentSection() {
   return (
-    <div>
+    <div className="space-y-4">
       {data.comments.map((comment) => {
         return (
           <section key={comment.id} className="mx-auto grid max-w-120 grid-cols-[auto_auto] rounded-lg bg-white p-3 md:max-w-182 md:grid-cols-[auto_1fr_auto] md:grid-rows-[auto_auto] md:p-6">
