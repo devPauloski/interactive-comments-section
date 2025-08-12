@@ -43,7 +43,7 @@ function Comment({ commentData }) {
   return (
     <section
       aria-labelledby="title"
-      className="mb-4.5 grid grid-cols-[auto_auto] rounded-lg bg-white p-3 md:grid-cols-[auto_1fr_auto] md:grid-rows-[auto_auto] md:p-6"
+      className="mb-4.5 grid grid-cols-[auto_auto] rounded-lg bg-white p-3 md:grid-cols-[auto_1fr_auto] md:grid-rows-[auto_auto] md:p-6 shadow"
     >
       <div className="col-span-2 col-start-1 mb-4 flex flex-wrap items-center gap-3 md:col-start-2 md:col-end-3">
         <img className="size-8.5" src={user.image.webp} alt={user.username} />
