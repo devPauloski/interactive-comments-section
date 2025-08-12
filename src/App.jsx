@@ -14,7 +14,7 @@ export default function App() {
   );
 }
 
-function CommentSection({comments}) {
+function CommentSection({ comments }) {
   return (
     <ul>
       {comments.map((comment) => (
@@ -43,7 +43,7 @@ function Comment({ commentData }) {
   return (
     <section
       aria-labelledby="title"
-      className="mb-4.5 grid grid-cols-[auto_auto] rounded-lg bg-white p-3 md:grid-cols-[auto_1fr_auto] md:grid-rows-[auto_auto] md:p-6 shadow"
+      className="mb-4.5 grid grid-cols-[auto_auto] rounded-lg bg-white p-3 shadow md:grid-cols-[auto_1fr_auto] md:grid-rows-[auto_auto] md:p-6"
     >
       <div className="col-span-2 col-start-1 mb-4 flex flex-wrap items-center gap-3 md:col-start-2 md:col-end-3">
         <img className="size-8.5" src={user.image.webp} alt={user.username} />
@@ -58,7 +58,7 @@ function Comment({ commentData }) {
       </p>
 
       <div className="md:row-start-1 md:row-end-3 md:mr-5.5 md:h-fit">
-        <div className="inline-flex items-center gap-2 rounded-xl bg-grey-50 md:flex-col">
+        <div className="inline-flex items-center gap-2 rounded-xl bg-grey-50 shadow md:flex-col">
           <button
             className="grid h-10 w-10 cursor-pointer place-items-center md:h-8"
             aria-label="Upvote"
