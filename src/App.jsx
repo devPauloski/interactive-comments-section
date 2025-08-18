@@ -2,6 +2,7 @@ import data from "./data.json";
 import PlusIcon from "./assets/icons/icon-plus.svg?react";
 import MinusIcon from "./assets/icons/icon-minus.svg?react";
 import ReplyIcon from "./assets/icons/icon-reply.svg?react";
+import { useState } from "react";
 
 export default function App() {
   return (
@@ -21,7 +22,7 @@ function CommentSection({ comments }) {
         <li key={comment.id}>
           <Comment commentData={comment} />
           {comment.replies.length > 0 && (
-            <ul className="md:ml-auto md:w-[88%]">
+            <ul className="ml-4 md:ml-[10%]">
               {comment.replies.map((reply) => {
                 return (
                   <li key={reply.id}>
@@ -40,50 +41,69 @@ function CommentSection({ comments }) {
 function Comment({ commentData }) {
   const { user, createdAt, content, score } = commentData;
 
+  const [isReply, setIsReply] = useState(false);
+
   return (
-    <section
-      aria-labelledby="title"
-      className="mb-4.5 grid grid-cols-[auto_auto] rounded-lg bg-white p-3 shadow md:grid-cols-[auto_1fr_auto] md:grid-rows-[auto_auto] md:p-6"
-    >
-      <div className="col-span-2 col-start-1 mb-4 flex flex-wrap items-center gap-3 md:col-start-2 md:col-end-3">
-        <img className="size-8.5" src={user.image.webp} alt={user.username} />
-        <h2 id="title" className="font-bold text-grey-800">
-          {user.username}
-        </h2>
-        <p>{createdAt}</p>
-      </div>
-
-      <p className="col-span-2 col-start-1 mb-4 md:col-start-2 md:mb-0 md:max-w-[60ch]">
-        {content}
-      </p>
-
-      <div className="md:row-start-1 md:row-end-3 md:mr-5.5 md:h-fit">
-        <div className="inline-flex items-center gap-2 rounded-xl bg-grey-50 md:flex-col">
-          <button
-            className="grid h-10 w-10 cursor-pointer place-items-center md:h-8"
-            aria-label="Upvote"
-          >
-            <PlusIcon />
-          </button>
-          <p className="text-center font-medium text-purple-600">
-            <span className="sr-only">Comment score:</span>
-            {score}
+    <section aria-labelledby="user-name">
+      <div className="mb-4.5 grid grid-cols-[auto_auto] rounded-lg bg-white p-3 shadow md:grid-cols-[auto_1fr_auto] md:grid-rows-[auto_auto] md:p-6">
+        <div className="col-span-2 col-start-1 mb-4 flex flex-wrap items-center gap-3 md:col-start-2 md:col-end-3">
+          <img className="size-8.5" src={user.image.webp} alt={user.username} />
+          <p id="user-name" className="font-bold text-grey-800">
+            {user.username}
           </p>
+          <p>{createdAt}</p>
+        </div>
+
+        <p className="col-span-2 col-start-1 mb-4 md:col-start-2 md:mb-0 md:max-w-[60ch]">
+          {content}
+        </p>
+
+        <div className="md:row-start-1 md:row-end-3 md:mr-5.5 md:h-fit">
+          <div className="inline-flex items-center gap-2 rounded-xl bg-grey-50 md:flex-col">
+            <button
+              className="grid h-10 w-10 cursor-pointer place-items-center md:h-8"
+              aria-label="Upvote"
+            >
+              <PlusIcon />
+            </button>
+            <p className="text-center font-medium text-purple-600">
+              <span className="sr-only">Comment score:</span>
+              {score}
+            </p>
+            <button
+              className="grid h-10 w-10 cursor-pointer place-items-center md:h-8"
+              aria-label="Downvote"
+            >
+              <MinusIcon />
+            </button>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-end md:col-start-3 md:row-start-1 md:h-8.5">
           <button
-            className="grid h-10 w-10 cursor-pointer place-items-center md:h-8"
-            aria-label="Downvote"
+            onClick={() => setIsReply(!isReply)}
+            className="flex items-center gap-2.5"
           >
-            <MinusIcon />
+            <ReplyIcon />
+            <span className="font-medium text-purple-600">Reply</span>
           </button>
         </div>
       </div>
-
-      <div className="flex items-center justify-end md:col-start-3 md:row-start-1 md:h-8.5">
-        <button className="flex items-center gap-2.5">
-          <ReplyIcon />
-          <span className="font-medium text-purple-600">Reply</span>
-        </button>
-      </div>
+      {isReply && (
+        <form className="mb-5">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-[auto_1fr_auto]">
+            <textarea
+              className="col-start-1 col-end-3 border-1 md:col-start-2 md:col-end-3"
+              name=""
+              id=""
+            ></textarea>
+            <img className="md:row-start-1" src="../images/avatars/image-juliusomo.webp" alt="" />
+            <div>
+              <button className="bg-purple-600 text-white">send</button>
+            </div>
+          </div>
+        </form>
+      )}
     </section>
   );
 }
