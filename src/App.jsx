@@ -1,15 +1,17 @@
+import { useState } from "react";
 import data from "./data.json";
 import PlusIcon from "./assets/icons/icon-plus.svg?react";
 import MinusIcon from "./assets/icons/icon-minus.svg?react";
 import ReplyIcon from "./assets/icons/icon-reply.svg?react";
-import { useState } from "react";
 
 export default function App() {
+  const [comments, setComments] = useState(data.comments);
+
   return (
     <main className="px-4 py-7 md:px-0 md:py-16">
       <div className="mx-auto max-w-120 md:max-w-182">
         <h1 className="sr-only">Comments</h1>
-        <CommentSection comments={data.comments} />
+        <CommentSection comments={comments} />
       </div>
     </main>
   );
@@ -82,28 +84,41 @@ function Comment({ commentData }) {
         <div className="flex items-center justify-end md:col-start-3 md:row-start-1 md:h-8.5">
           <button
             onClick={() => setIsReply(!isReply)}
-            className="flex items-center gap-2.5"
+            className="flex cursor-pointer items-center gap-2.5"
           >
             <ReplyIcon />
             <span className="font-medium text-purple-600">Reply</span>
           </button>
         </div>
       </div>
-      {isReply && (
-        <form className="mb-5">
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-[auto_1fr_auto]">
-            <textarea
-              className="col-start-1 col-end-3 border-1 md:col-start-2 md:col-end-3"
-              name=""
-              id=""
-            ></textarea>
-            <img className="md:row-start-1" src="../images/avatars/image-juliusomo.webp" alt="" />
-            <div>
-              <button className="bg-purple-600 text-white">send</button>
-            </div>
-          </div>
-        </form>
-      )}
+      {isReply && <ReplyComment />}
     </section>
+  );
+}
+
+function ReplyComment() {
+  return (
+    <form className="mb-5 rounded-lg bg-white p-4 md:px-5.5 md:py-5.5">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-[auto_1fr_auto]">
+        <div className="col-start-1 col-end-3 border-1 md:col-start-2 md:col-end-3">
+          <label htmlFor="reply-text" className="sr-only">
+            Enter reply text
+          </label>
+          <textarea
+            className="h-24 w-full resize-none"
+            name="replyText"
+            id="reply-text"
+          ></textarea>
+        </div>
+        <img
+          className="h-10.5 w-10.5 md:row-start-1"
+          src="../images/avatars/image-juliusomo.webp"
+          alt=""
+        />
+        <div>
+          <button className="bg-purple-600 text-white">REPLY</button>
+        </div>
+      </div>
+    </form>
   );
 }
